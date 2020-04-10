@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学科</title>
+</head>
+<body>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script src="//cdn.bootcss.com/vue-resource/1.0.3/vue-resource.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                subjects: []
+            },
+            created() {
+                fetch('/vote/jssubjects/').then(resp => resp.json()).then(json => this.subjects = json)
+            },
+            methods: {
+                getTeachersHref(sno) {
+                    return `/vote/subjects/teachers/?sno=${sno}`
+                }
+            }
+        })
+    </script>
+    <h1>所有学科</h1>
+    <hr>
+    <div id="app">
+        <div v-for="subject in subjects">
+            <h3>
+                <a href="getTeachersHref(subject.no)">{{ subject.name }}</a>
+                <img v-if="subject.isHot" src="/static/images/180" width="32">
+            </h3>
+            <p>{{ subject.intro }}</p>
+        </div>
+    </div>
+</body>
+</html>
