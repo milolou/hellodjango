@@ -1,0 +1,2 @@
+# hellodjango
+some django projects
