@@ -23,7 +23,7 @@ Pillow==7.0.0
 prompt-toolkit==3.0.4
 ptyprocess==0.6.0
 pycparser==2.20
-Pygments==2.6.1
+Pygments==2.7.4
 PyMySQL==0.9.3
 pytz==2019.3
 redis==3.4.1
